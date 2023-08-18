@@ -12,7 +12,7 @@ struct LogoView: View {
     @State private var isPulsing = true
     
     var body: some View {
-        Image("CSGOLogo")
+        Image(StringConstants.vava)
             .resizable()
             .aspectRatio(contentMode: .fit)
             .frame(width: isPulsing ? 100 : 90, height: isPulsing ? 100 : 90)

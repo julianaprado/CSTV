@@ -34,7 +34,7 @@ struct MatchesScreen: View {
                                                      teams: match.getOpponents(),
                                                      howMany: match.getHowManyOpponents(),
                                                      time: match.timeString ?? "")) {
-                        CellView(time: match.timeString ?? "",
+                        CellView(time: match.timeString ?? "               ",
                                  teamOneName: match.getOpponentName(whichTeam: .first),
                                  teamOneImageURL: match.getOpponentImageURL(whichTeam: .first),
                                  teamTwoName: match.getOpponentName(whichTeam: .second),
@@ -69,6 +69,8 @@ struct MatchesScreen: View {
                   UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
             UIRefreshControl.appearance().tintColor = UIColor.gray
             self.viewModel.addSubscriber()
+        }.onDisappear {
+            viewModel.stopTimer()
         }
     }
 }

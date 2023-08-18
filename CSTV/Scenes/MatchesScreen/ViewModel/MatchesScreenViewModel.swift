@@ -19,6 +19,8 @@ final class MatchesScreenViewModel: ObservableObject {
     @Published var shouldStopPagination: Bool = false
     private var page = 1
     
+    var timer = Timer()
+    
     @Published var isLoading: Bool = true
     @Published var allMatches: [Matches] = []
     
@@ -147,8 +149,12 @@ final class MatchesScreenViewModel: ObservableObject {
         return new
     }
     
+    public func stopTimer() {
+        timer.invalidate()
+    }
+    
     private func setTimer() {
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) {_ in
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) {_ in
             self.checkMatchTimeRelativeToDate()
         }
     }

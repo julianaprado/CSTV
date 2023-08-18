@@ -15,13 +15,13 @@ struct StringConstants {
     static let apiToken = "DJQlw4yU8VSt9CsImY77d0NaeEiS2e7JO8zDkAW4XTpQ0emMWyU"
     
     // Running Matches url
-    static let runningMatchesUrl = "https://api.pandascore.co/csgo/matches/running"
+    static let runningMatchesUrl = "https://api.pandascore.co/valorant/matches/running"
     
     // Upcoming Matches url
-    static let upcomingMatchesUrl = "https://api.pandascore.co/csgo/matches/upcoming?page[number]="
+    static let upcomingMatchesUrl = "https://api.pandascore.co/valorant/matches/upcoming?page[number]="
     
     // Team Matches url without team id
-    static let teamUrl = "https://api.pandascore.co/csgo/teams?filter[id]="
+    static let teamUrl = "https://api.pandascore.co/valorant/teams?filter[id]="
     
     // MARK: - View Strings
     
@@ -68,4 +68,10 @@ struct StringConstants {
     
     // Day and month and hour and minute
     static let dayOfMonth = "dd.MM, \(hourAndMinute)"
+    
+    // MARK: - Logos
+    
+    static let csgo = "csgo"
+    
+    static let vava = "valorant"
 }
