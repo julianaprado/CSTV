@@ -24,7 +24,7 @@ extension Image {
     func teamModifier() -> some View {
         self
             .imageModifier()
-            .frame(width: 53, height: 60)
+            .frame(width: 60, height: 60)
             .clipped()
             .aspectRatio(contentMode: .fill)
     }
@@ -50,7 +50,7 @@ extension Image {
     func leagueModifier() -> some View {
         self
             .imageModifier()
-            .aspectRatio(contentMode: .fill)
+            .aspectRatio(contentMode: .fit)
             .frame(width: 14, height: 14)
     }
     
@@ -61,7 +61,7 @@ extension Image {
         self
             .resizable()
             .scaledToFill()
-            .frame(width: 60, height: 60)
+            .frame(maxWidth: 60, maxHeight: 60)
             .clipped()
             .clipShape(RoundedRectangle(cornerRadius: 8))
             .aspectRatio(contentMode: .fill)

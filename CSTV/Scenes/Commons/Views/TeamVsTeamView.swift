@@ -18,11 +18,13 @@ struct TeamVsTeamView: View {
     var teamTwoName: String
     
     var body: some View {
-        HStack(alignment: .center, spacing: 20) {
+        HStack(alignment: .center) {
             TeamNameAndImageView(imageURL: teamOneImageURL, teamName: teamOneName)
+            Spacer(minLength: 20)
             Text(StringConstants.vs)
                 .font(Font.roboto(.Regular, size: 14))
                 .foregroundColor(.white.opacity(0.5))
+            Spacer(minLength: 20)
             TeamNameAndImageView(imageURL: teamTwoImageURL, teamName: teamTwoName)
         }.padding(12)
         .frame(height: 119)

@@ -16,7 +16,7 @@ struct LogoView: View {
             .resizable()
             .aspectRatio(contentMode: .fit)
             .frame(width: isPulsing ? 100 : 90, height: isPulsing ? 100 : 90)
-            .scaleEffect(isPulsing ? 1.3 : 1)
+            .scaleEffect(isPulsing ? 1 : 1.3)
             .animation(
                 Animation.easeInOut(duration: 1)
                     .repeatForever(autoreverses: true)
@@ -24,5 +24,12 @@ struct LogoView: View {
             .onAppear {
                 isPulsing.toggle()
             }
+    }
+}
+
+struct LogoView_Previews: PreviewProvider {
+        
+    static var previews: some View {
+        LogoView()
     }
 }

@@ -23,7 +23,7 @@ final class MatchesScreenViewModel: ObservableObject {
     @Published var allMatches: [Matches] = []
     
     // MARK: - Public Functions
-
+    
     /// Get upcoming and running matches
     func addSubscriber() {
         page = 1
@@ -38,13 +38,16 @@ final class MatchesScreenViewModel: ObservableObject {
                 switch completion {
                 case .finished:
                     self?.showActivityIndicator()
+                    
                 case .failure:
                     self?.showActivityIndicator()
                 }
             }, receiveValue: { [weak self] upc, run in
                 self?.allMatches = (self?.removeMatchesWithoutTimeStamp(fromArray: run))!
                 self?.allMatches.append(contentsOf: (self?.removeMatchesWithoutTimeStamp(fromArray: upc))!)
+                self?.setTimer()
             }) .store(in: &requests)
+        
     }
     
     /// Get more upcoming matches for pagination
@@ -76,11 +79,12 @@ final class MatchesScreenViewModel: ObservableObject {
                 }
             } .store(in: &requests)
     }
-
+    
     /// Format the time stamp
     /// - Parameter dateString: date recieved from the API
     /// - Returns: string to be shown on screen
-    func formatDateString(_ dateString: String) -> (Binding<Bool>,String) {
+    func formatDateString(_ dateString: String, index: Int) {
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = StringConstants.dateFormat
         dateFormatter.timeZone = TimeZone(abbreviation: StringConstants.timeZone)
@@ -93,23 +97,33 @@ final class MatchesScreenViewModel: ObservableObject {
             
             if calendar.isDateInToday(date) {
                 if date <= currentTime {
-                    return (.constant(true),StringConstants.now)
+                    if self.allMatches[index].getIsLive() == false {
+                        self.allMatches[index].setIsLiveBool(with: true)
+                        self.allMatches[index].setTimeString(with: StringConstants.now)
+                        let element = self.allMatches[index]
+                        allMatches.remove(at: index)
+                        allMatches.insert(element, at: 0)
+                    } else {
+                        self.allMatches[index].setIsLiveBool(with: true)
+                        self.allMatches[index].setTimeString(with: StringConstants.now)
+                    }
                 } else {
                     dateFormatter.dateFormat = StringConstants.hourAndMinute
                     let formattedTime =  dateFormatter.string(from: date)
-                    return (.constant(false),"Hoje, \(formattedTime)")
+                    self.allMatches[index].setIsLiveBool(with: false)
+                    self.allMatches[index].setTimeString(with: "Hoje, \(formattedTime)")
                 }
             } else if calendar.isDate(date, equalTo: Date(), toGranularity: .weekOfYear) {
                 dateFormatter.dateFormat = StringConstants.dayofWeek
                 let formattedString = dateFormatter.string(from: date)
-                return (.constant(false),formattedString.capitalized.replacingOccurrences(of: ".", with: ""))
+                self.allMatches[index].setIsLiveBool(with: false)
+                self.allMatches[index].setTimeString(with: formattedString.capitalized.replacingOccurrences(of: ".", with: ""))
             } else {
                 dateFormatter.dateFormat = StringConstants.dayOfMonth
                 let formattedString = dateFormatter.string(from: date)
-                return (.constant(false),formattedString)
+                self.allMatches[index].setIsLiveBool(with: false)
+                self.allMatches[index].setTimeString(with: formattedString)
             }
-        } else {
-            return (.constant(false),"")
         }
     }
     
@@ -124,7 +138,7 @@ final class MatchesScreenViewModel: ObservableObject {
     }
     
     // MARK: - Private Functions
-
+    
     /// Remove matches without time stamp
     /// - Parameter array: array to remove from
     /// - Returns: new array
@@ -132,4 +146,17 @@ final class MatchesScreenViewModel: ObservableObject {
         let new = array.filter { $0.beginsAt != nil }
         return new
     }
+    
+    private func setTimer() {
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) {_ in
+            self.checkMatchTimeRelativeToDate()
+        }
+    }
+    
+    private func checkMatchTimeRelativeToDate() {
+        for i in allMatches.indices {
+            self.formatDateString(self.allMatches[i].getTime(), index: i)
+        }
+    }
+    
 }

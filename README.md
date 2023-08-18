@@ -3,12 +3,10 @@
 The CSTV displays CS: GO matches happening across several worldwide tournaments.
 
 # Inferface
-
-![‎Screens](https://github.com/julianaprado/CSTV/assets/50370069/296689cc-2282-41df-a249-3f4ed645c165)
+![‎Screens ‎001](https://github.com/julianaprado/CSTV/assets/50370069/a62598c5-df77-4b8f-b366-7304f7d15d44)
 
 # Features
 - Displays all matches chronologically
-
 - Displays match details
 - Native launch screen
 - Custom launch screen with animation

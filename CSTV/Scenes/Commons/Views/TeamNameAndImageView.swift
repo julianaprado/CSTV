@@ -36,7 +36,9 @@ struct TeamNameAndImageView: View {
                     .foregroundColor(.white)
                     .lineLimit(1)
                     .frame(maxWidth: geometry.size.width)
-            }.clipped()
+                    .scaledToFill()
+                    .minimumScaleFactor(0.5)
+            }.clipped()            
         }
     }
 }

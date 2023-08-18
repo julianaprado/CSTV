@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB3196FA2A8C5DAC004E97B0 /* CashedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3196F92A8C5DAC004E97B0 /* CashedImage.swift */; };
 		DB59653B2A895C6100006F86 /* MatchDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB59653A2A895C6100006F86 /* MatchDetailsViewModel.swift */; };
 		DB59653D2A895C8C00006F86 /* MatchDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB59653C2A895C8C00006F86 /* MatchDetailsView.swift */; };
 		DB5965402A89730500006F86 /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = DB59653F2A89730500006F86 /* CachedAsyncImage */; };
@@ -79,6 +80,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DB3196F92A8C5DAC004E97B0 /* CashedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashedImage.swift; sourceTree = "<group>"; };
 		DB59653A2A895C6100006F86 /* MatchDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDetailsViewModel.swift; sourceTree = "<group>"; };
 		DB59653C2A895C8C00006F86 /* MatchDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDetailsView.swift; sourceTree = "<group>"; };
 		DB5965422A8993FD00006F86 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
@@ -365,6 +367,7 @@
 				DB949A612A8813410014F2E6 /* ImageModifier.swift */,
 				DB949A632A88779F0014F2E6 /* ViewCornerRadius.swift */,
 				DB59655A2A8A95D600006F86 /* HideView.swift */,
+				DB3196F92A8C5DAC004E97B0 /* CashedImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -635,6 +638,7 @@
 				DBC81F4E2A8725ED0005235C /* LoaderView.swift in Sources */,
 				DB59653D2A895C8C00006F86 /* MatchDetailsView.swift in Sources */,
 				DB59654B2A89987900006F86 /* TeamVsTeamView.swift in Sources */,
+				DB3196FA2A8C5DAC004E97B0 /* CashedImage.swift in Sources */,
 				DB5965522A8A71BD00006F86 /* URLType.swift in Sources */,
 				DB5965452A89945D00006F86 /* Player.swift in Sources */,
 				DB59655B2A8A95D600006F86 /* HideView.swift in Sources */,
@@ -801,6 +805,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CSTV/Preview Content\"";
+				DEVELOPMENT_TEAM = Z9QZ625W6Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CSTV/Info.plist;
@@ -808,6 +813,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -829,6 +835,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CSTV/Preview Content\"";
+				DEVELOPMENT_TEAM = Z9QZ625W6Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CSTV/Info.plist;
@@ -836,6 +843,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

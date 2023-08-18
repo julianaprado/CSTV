@@ -18,12 +18,13 @@ struct CellView: View {
     var league: String
     var serie: String
     var leagueImageURL: String
-    @Binding var isLive: Bool
+    var isLive: Bool
     
     var body: some View {
         ZStack {
             VStack {
                 TimeView(time: time, color: isLive ? Color.fuzeRed : Color.fuzeGray)
+                    .frame(height: 26)
                 TeamVsTeamView(teamOneImageURL: teamOneImageURL,
                                teamOneName: teamOneName,
                                teamTwoImageURL: teamTwoImageURL,

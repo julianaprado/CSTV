@@ -15,6 +15,8 @@ struct Matches: Codable {
     var opponents: [Opponents]?
     var serie: Serie?
     var isLive: Bool?
+    var timeString: String?
+    var id: Int?
     
     private enum CodingKeys: String, CodingKey {
         case beginsAt = "begin_at"
@@ -23,6 +25,8 @@ struct Matches: Codable {
         case opponents
         case serie
         case isLive
+        case timeString
+        case id
     }
 
     // MARK: - Getters
@@ -79,6 +83,10 @@ struct Matches: Codable {
         }
     }
     
+    func getIsLive() -> Bool {
+        return self.isLive ?? false
+    }
+    
     func getOpponentImageURL(whichTeam: OpponentEnum) -> String {
         let count = getHowManyOpponents()
         if count == HowManyOpponents.none {
@@ -104,5 +112,9 @@ struct Matches: Codable {
     
     mutating func setIsLiveBool(with value: Bool) {
         self.isLive = value
+    }
+    
+    mutating func setTimeString(with str: String) {
+        self.timeString = str
     }
 }

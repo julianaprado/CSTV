@@ -17,7 +17,7 @@ struct LeagueAndSeriesView: View {
     
     var body: some View {
         LazyVStack(alignment: .leading) {
-            HStack(alignment: .center, spacing: 10) {
+            LazyHStack(alignment: .center, spacing: 10) {
                 CachedAsyncImage(url: URL(string: imageURL)) { phase in
                     switch phase {
                     case .success(let image):
@@ -30,10 +30,12 @@ struct LeagueAndSeriesView: View {
                         ProgressView()
                     }
                 }
-                Text("\(league) + \(series)")
+                Text("\(league) \(series)")
                     .font(Font.roboto(.Regular, size: 14))
                     .foregroundColor(.white)
                     .lineLimit(1)
+                    .scaledToFill()
+                    .minimumScaleFactor(0.5)
             }.padding(8)
         }.padding(.leading, 16)
             .padding(.trailing, 8)
@@ -41,3 +43,4 @@ struct LeagueAndSeriesView: View {
             .frame(maxWidth: .infinity, maxHeight: 32, alignment: .leading)
     }
 }
+
